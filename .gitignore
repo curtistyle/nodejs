@@ -4,7 +4,7 @@
 
 # Assembled binaries and object directories
 obj/
-Primera-A/node_modules
+Primera-AP/node_modules
 a.out
 *.bin
 *.a26
