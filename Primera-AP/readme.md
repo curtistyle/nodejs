@@ -162,9 +162,9 @@ El método `render()` de Express se utiliza para renderizar vistas (views) de un
 ```
 
 Donde:
-    - `nombreVista:` el nombre de la vista (sin la extensión del archivo) que se va a renderizar.
-    - `datos:` un objeto que contiene datos que se van a utilizar en la vista. Este parámetro es opcional.
-    - `funciónDevolución:` una función de devolución de llamada que se ejecutará después de que se haya renderizado la vista. Este parámetro es opcional.
+- `nombreVista:` el nombre de la vista (sin la extensión del archivo) que se va a renderizar.
+- `datos:` un objeto que contiene datos que se van a utilizar en la vista. Este parámetro es opcional.
+- `funciónDevolución:` una función de devolución de llamada que se ejecutará después de que se haya renderizado la vista. Este parámetro es opcional.
 
 Por ejemplo, para renderizar la vista `home.ejs` utilizando el motor de plantillas EJS y enviar algunos datos a la vista, se puede utilizar el siguiente código:
 
