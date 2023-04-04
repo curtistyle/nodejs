@@ -1,5 +1,8 @@
 # Nodejs and JavaScript
 
+## Crear modulo
+
+
 ## **path**.*dirname()*
 
 Se utiliza para obtener el nombre del directorio que contiene un archivo en una ruta dada.
@@ -61,6 +64,47 @@ Podemos utilizar `import.meta.url` para obtener la URL absoluta de `myapp.js` de
 Puedes utilizar esta propiedad para acceder a la ruta del archivo del módulo actual y realizar operaciones como la carga dinámica de módulos, la lectura de archivos, la resolución de rutas relativas, entre otras.
 
 Es importante tener en cuenta que import.meta.url solo está disponible en los módulos ECMAScript y no se puede utilizar en archivos de script normales.
+
+## **path**_.join()_
+
+El método `path.join()` de Node.js se utiliza para unir segmentos de ruta (path) en una única ruta. Toma dos o más argumentos como segmentos de ruta y devuelve una cadena de ruta formada por la unión de los segmentos.
+
+La principal ventaja de utilizar `path.join()` es que se asegura de que la ruta generada sea válida y funcione en diferentes sistemas operativos, ya que utiliza los separadores de ruta apropiados para cada sistema operativo.
+
+Por ejemplo, si se desea unir los segmentos `/usr/local` y `bin` en una única ruta en Linux, se puede utilizar `path.join()` de la siguiente manera:
+
+```js
+    const path = require('path');
+
+    const ruta = path.join('/usr/local', 'bin');
+
+    console.log(ruta); // "/usr/local/bin" 
+```
+
+En Windows, el separador de ruta es `\`, por lo que `path.join()` utilizará automáticamente el separador de ruta adecuado para el sistema operativo en el que se esté ejecutando el código:
+
+```js
+    const path = require('path');
+
+    const ruta = path.join('C:', 'Users', 'usuario', 'Documents');
+
+    console.log(ruta); // "C:\Users\usuario\Documents"
+```
+
+En este ejemplo, `path.join()` une los segmentos `C:`, `Users`, `usuario` y `Documents` en una única ruta que es válida en Windows.
+
+En resumen, `path.join()` es una forma segura y fácil de unir segmentos de ruta en una única ruta que funcione en diferentes sistemas operativos.
+
+# Ejs
+
+EJS (Embedded JavaScript) es un motor de plantillas (template engine) para JavaScript que se utiliza en el lado del servidor con Node.js y en el lado del cliente en navegadores web. Permite la creación de vistas dinámicas para aplicaciones web utilizando HTML, CSS y JavaScript.
+
+EJS utiliza sintaxis de JavaScript en las plantillas para generar HTML dinámico y es fácil de aprender y utilizar. EJS se integra bien con Express, un popular framework de Node.js para crear aplicaciones web.
+
+Con EJS, es posible crear plantillas reutilizables y extensibles que simplifican la creación de vistas en aplicaciones web. Además, EJS es altamente personalizable y puede configurarse para satisfacer las necesidades específicas de cada proyecto.
+
+EJS es una opción popular para el desarrollo de aplicaciones web en Node.js y es utilizado por una gran cantidad de empresas y proyectos de código abierto.
+
 
 # Express
 
@@ -185,5 +229,23 @@ Es importante tener en cuenta que para utilizar el método `render()`, primero e
 
 En este ejemplo, `app.set('view engine', 'ejs')` establece el motor de plantillas EJS como el motor de plantillas de la aplicación, y `app.set('views', path.join(__dirname, 'views'))` establece la carpeta `views` como la carpeta de vistas de la aplicación.
 
+## _viwe engine_
 
+``'view engine'`` es una clave en el objeto de configuración de Express que se utiliza para establecer el motor de plantillas (template engine) que se va a utilizar en la aplicación.
+
+Por ejemplo, si se desea utilizar el motor de plantillas EJS, se puede establecer la clave `'view engine'` en `'ejs'` de la siguiente manera:
+
+```js
+    app.set('view engine', 'ejs');
+```
+
+Esta línea de código establece el motor de plantillas EJS como el motor de plantillas de la aplicación. De esta forma, Express utiliza el motor de plantillas EJS para renderizar vistas (views) en la aplicación.
+
+Es importante tener en cuenta que para utilizar el motor de plantillas en Express, también es necesario configurar la carpeta en la que se encuentran las vistas de la aplicación utilizando la clave `'views'` de la siguiente manera:
+
+```js
+    app.set('views', path.join(__dirname, 'views'));
+```
+
+Esta línea de código establece la carpeta views como la carpeta de vistas de la aplicación.
 
