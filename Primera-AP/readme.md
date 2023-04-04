@@ -153,3 +153,37 @@ En este ejemplo, `app.listen(3000)` inicia el servidor y lo hace escuchar las co
 
 Es importante tener en cuenta que `app.listen()` solo debe llamarse una vez en toda la aplicación. Si se intenta llamar al método `listen()` dos veces en la misma aplicación, se producirá un error de tiempo de ejecución.
 
+## **render()**
+
+El método `render()` de Express se utiliza para renderizar vistas (views) de una aplicación web utilizando un motor de plantillas (template engine). La sintaxis básica del método `render()` es la siguiente:
+
+```js
+    res.render(nombreVista, [datos], [funcionDevolución])
+```
+
+Donde:
+    - `nombreVista:` el nombre de la vista (sin la extensión del archivo) que se va a renderizar.
+    - `datos:` un objeto que contiene datos que se van a utilizar en la vista. Este parámetro es opcional.
+    - `funciónDevolución:` una función de devolución de llamada que se ejecutará después de que se haya renderizado la vista. Este parámetro es opcional.
+
+Por ejemplo, para renderizar la vista `home.ejs` utilizando el motor de plantillas EJS y enviar algunos datos a la vista, se puede utilizar el siguiente código:
+
+```js
+    app.get('/', function(req, res) {
+        res.render('home', {titulo: 'Página de inicio', mensaje: 'Bienvenido a mi sitio web'});
+    });
+```
+
+En este ejemplo, `res.render('home', {titulo: 'Página de inicio', mensaje: 'Bienvenido a mi sitio web'})` renderiza la vista `home.ejs` utilizando el motor de plantillas EJS y envía los datos `{titulo: 'Página de inicio', mensje: 'Bienvenido a mi sitio web'}` a la vista. Estos datos se pueden utilizar en la vista utilizando la sintaxis de plantillas de EJS.
+
+Es importante tener en cuenta que para utilizar el método `render()`, primero es necesario configurar el motor de plantillas que se va a utilizar en la aplicación. Para hacerlo, se puede utilizar la función `app.set('view engine', nombreMotor)` para establecer el motor de plantillas y la carpeta en la que se encuentran las vistas de la aplicación. Por ejemplo, para configurar el motor de plantillas EJS y la carpeta `views` como la carpeta de vistas de la aplicación, se puede utilizar el siguiente código:
+
+```js
+    app.set('view engine', 'ejs');
+    app.set('views', path.join(__dirname, 'views'));
+```
+
+En este ejemplo, `app.set('view engine', 'ejs')` establece el motor de plantillas EJS como el motor de plantillas de la aplicación, y `app.set('views', path.join(__dirname, 'views'))` establece la carpeta `views` como la carpeta de vistas de la aplicación.
+
+
+
