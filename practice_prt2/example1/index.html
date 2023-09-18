@@ -59,6 +59,7 @@
             <th scope="col">Band</th>
             <th scope="col">Track</th>
             <th scope="col">Time</th>
+            <th scope="col">Operators</th>
           </tr>
         </thead>
         <tbody>
@@ -67,92 +68,60 @@
             <td>The Offspring</td>
             <td>The Kids Aren't All Right</td>
             <td>02:30</td>
+            <td>
+                <img src="img/garbage_collector.png" width="25px" height="25px">
+                <img src="img/info.png" width="25px" height="25px">
+            </td>
           </tr>
           <tr>
             <td>2</td>
             <td>Green Day</td>
             <td>She</td>
             <td>03:02</td>
+            <td>
+                <img src="img/garbage_collector.png" width="25px" height="25px">
+                <img src="img/info.png" width="25px" height="25px">
+            </td>
           </tr>
           <tr>
             <td>3</td>
             <td>Green Day</td>
             <td>Holiday</td>
             <td>04:20</td>
+            <td>
+                <img src="img/garbage_collector.png" width="25px" height="25px">
+                <img src="img/info.png" width="25px" height="25px">
+            </td>
           </tr>
           <tr>
             <td>4</td>
             <td>Blink 182</td>
             <td>Carousel</td>
             <td>03:43</td>
+            <td>
+                <a href="/index"><img src="img/garbage_collector.png" width="25px" height="25px"></a>
+                <img src="img/info.png" width="25px" height="25px">
+            </td>
           </tr>
           <tr>
             <td>5</td>
             <td>Sum 41</td>
             <td>Still Waiting</td>
             <td>02:15</td>
+            <td>
+                <img src="img/garbage_collector.png" width="25px" height="25px">
+                <img src="img/info.png" width="25px" height="25px">
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="card-footer p-2">
-      <button type="button" onclick="upNdown('up');" class="btn btn-outline-dark m-2">Up</button>
-      <button type="button" onclick="upNdown('down');" class="btn btn-outline-dark">Down</button>
+        <button type="button" onclick="upNdown('up');" class="btn btn-outline-success m-2">Up</button>
+        <button type="button" onclick="upNdown('down');" class="btn btn-outline-danger">Down</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-
-      var index;  // variable to set the selected row indexs
-            function getSelectedRow()
-            {
-                var table = document.getElementById("table");
-                for(var i = 1; i < table.rows.length; i++)
-                {
-                    
-                    table.rows[i].onclick = function()
-                    {
-                        // clear the selected from the previous selected row
-                        // the first time index is undefined
-                        if(typeof index !== "undefined"){
-                            table.rows[index].classList.toggle("table-danger");
-                            
-                        }
-                       
-                        index = this.rowIndex;
-                        
-                        this.classList.toggle("table-danger");
-
-                    };
-                }
-                    
-            }
-
-      getSelectedRow();
-
-      function upNdown(direction)
-        {
-          var rows = document.getElementById("table").rows,
-              parent = rows[index].parentNode;
-            if(direction === "up")
-            {
-                if(index > 1){
-                  parent.insertBefore(rows[index],rows[index - 1]);
-                  // when the row go up the index will be equal to index - 1
-                  index--;
-              }
-            }
-            
-            if(direction === "down")
-            {
-                if(index < rows.length -1){
-                  parent.insertBefore(rows[index + 1],rows[index]);
-                  // when the row go down the index will be equal to index + 1
-                  index++;
-              }
-            }
-        }
-
-    </script>
+    <script src="main.js"></script>
   </body>
 
 </html>
