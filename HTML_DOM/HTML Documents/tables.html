@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <tr>
+                <td>1</td>
+                <td>Carlos</td>
+                <td>carlos@example.com</td>
+                <td>21:02:23</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Agostina</td>
+                <td>agostina@example.com</td>
+                <td>31:10:23</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Nami</td>
+                <td>nami@example.com</td>
+                <td>14:12:23</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    // https://www.w3schools.com/jsref/dom_obj_all.asp
+    var tb = document.getElementById('tb')
+    var tr_1 = tb.children[1]
+    console.log(">>",tb.children.length)
+    console.log(tr_1.children[1].innerText)
+
+    for (var i = 0; i < tb.children.length ; i++){
+        var td = tb.children[i]
+        for (var j = 0 ; j < td.children.length ; j++){
+            console.log(td.children[j].innerText)
+            
+        }
+    }
+
+</script>
+</html>

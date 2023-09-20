@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin-left: 20px;
+        }
+        body {
+            background-color: rgb(23, 22, 22);
+        }
+        h1 {
+            color: orangered;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #table{
+            padding: 20px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        p {
+            color: orange;
+            font-style: italic;
+        }
+        label {
+            color: beige;
+            font-style: normal;
+        }
+        thead {
+            color: blanchedalmond;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        tbody {
+            color: azure;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos!</h1>
+    <article>
+        <p><b>Ejercicio 2:</b> Dadas las longitudes de los dos catetos de un triángulo rectángulo, hallar la longitud de la hipotenusa.</p>
+    </article>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Descripcion</td>
+                <td>Entrada</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Cateto 1: </td>
+                <td><input id="cat1" type="text"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Cateto 2: </td>
+                <td><input id="cat2" type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button id="btn_res">Calcular: </button>
+        <p>Resultado: <label id="res" for=""></label></p>
+    </div>
+</body>
+<script>
+
+    document.getElementById('btn_res').addEventListener("click", mostrarResultado)
+
+    var dato = {
+        numero1 : 0,
+        numero2 : 0
+    }
+
+    function obtenerCatetos() {
+        dato.numero1 = parseFloat(document.getElementById("cat1").value)
+        dato.numero2 = parseFloat(document.getElementById("cat2").value)
+    }
+
+    function hipotenusa(cat1, cat2){
+        var resultado = Math.sqrt((Math.pow(cat1,2) + Math.pow(cat2,2)))
+        
+        return resultado
+    }
+
+    function mostrarResultado(){
+        obtenerCatetos()
+        
+        res = hipotenusa(dato.numero1, dato.numero2)
+        res = res.toPrecision(3) // toPrecision() devuelve una cadena, con un número escrito con una longitud especificada:
+        document.getElementById('res').innerText = res
+    }
+</script>
+</html>

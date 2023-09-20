@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos</title>
+</head>
+<body>
+    <h1>Ejercicio 1</h1>
+    <article><p>Leer tres números de a una por vez, calcular su suma y su producto.</p></article>
+    <div id="input_values">
+        <label for="num1">Numero 1:</label>
+        <input type="text" name="" id="num1">
+        
+        <label for="num2">Numero 2:</label>
+        <input type="text" name="" id="num2">
+
+        <label for="num3">Numero 3:</label>
+        <input type="text" name="" id="num3">
+    </div>
+    <div >
+        <button id="btn_res">Mostrar Resultado</button>
+        <label for="resu" id="res"></label>
+    </div>
+</body>
+<script>
+    var btn_res = document.getElementById('btn_res').addEventListener("click", mostrarResultado)
+    
+
+    var dato = {
+        numero1 : 0,
+        numero2 : 0,
+        numero3 : 0
+    }
+
+    function obtenerValores(){
+        let num1 = document.getElementById('num1').value
+        let num2 = document.getElementById('num2').value
+        let num3 = document.getElementById('num3').value
+
+        dato.numero1 = Number(num1)
+        dato.numero2 = Number(num2)
+        dato.numero3 = Number(num3)
+        
+    }
+
+    function multiplicar(){
+        var resultado = dato.numero1 * dato.numero2 * dato.numero3
+        return resultado
+    }
+
+    function mostrarResultado() {
+        obtenerValores()
+        var res = multiplicar()
+    
+        label_res = document.getElementById('res').innerText = res.toString()
+    }
+
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicio 1 <code>v2</code></h1>
+    <div>
+        <table id="table">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Descipcion</td>
+                    <td>Input</td>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                <tr>
+                    <td>1</td>
+                    <td>Numero 1: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Numero 2:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Numero 3:</td>
+                    <td><input type="text"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="btn">
+        <button id="btn_res">Resultado: </button>
+        <p id="res"></p>
+    </div>
+</body>
+<script>
+    
+    var btn_res = document.getElementById('btn_res').addEventListener("click", mostrarResultado)
+    
+    var dato = {
+        numero1 : 0,
+        numero2 : 0,
+        numero3 : 0
+    }
+
+    function obtenerValores (){
+        var table = document.getElementById('table_body')
+
+        for (var i = 0 ; i < table.children.length ; i++){
+            console.log(table.children[i])
+            var input_value = table.children[i].children[2]
+            console.log("input:",input_value.children[0].value)
+        }
+    }
+    
+    function mostrarResultado() {
+        obtenerValores()
+    }
+    
+</script>
+</html>
