@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Descripcion: </td>
+                <td>Entrada: </td>
+            </tr>
+        </thead>
+        <tbody id="t_body">
+            <tr>
+                <td>1</td>
+                <td>Numero 1:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Numero 2:</td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="crearElemento()">Crear</button>
+</body>
+<script>
+    function crearElemento() {
+        elemento = document.createElement('p')
+        document.getElementById('t_body').appendChild(elemento)
+    } 
+    
+</script>
+</html>
