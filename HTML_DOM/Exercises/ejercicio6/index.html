@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        button {
+            margin-left: 20px;
+        }
+        body {
+            background-color: rgb(23, 22, 22);
+        }
+        h1 {
+            color: orangered;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #table{
+            padding: 20px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        p {
+            color: orange;
+            font-style: italic;
+        }
+        label {
+            color: beige;
+            font-style: normal;
+        }
+        thead {
+            color: blanchedalmond;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        tbody {
+            color: azure;
+        }
+        div {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 6</h1>
+    <article>
+        <p><b>Ejercicio 6: </b> Diseñe un algoritmo que determine el porcentaje de: Alumnos promocionados, Alumnos 
+            regularizados, Alumnos desaprobados y Alumnos libres, teniendo como datos cantidad de 
+            alumnos que cumplen con cada condición.</p>
+    </article>
+    <table>
+        <title>Cantidad de almnos: </title>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Descripcion: </td>
+                <td>Entrada: </td>
+                <td>Salida: </td>
+            </tr>
+        </thead>
+        <tbody id="t_body">
+            <tr>
+                <td>1</td>
+                <td>Almnos promocionados: </td>
+                <td><input id="a_prom" type="text"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Almnos regularizados: </td>
+                <td><input id="a_reg" type="text"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Almnos desaprobados: </td>
+                <td><input id="a_des" type="text"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Almnos libres: </td>
+                <td><input id="a_lib" type="text"></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button id="btn_res">Calcular</button>
+        <button id="btn_lim">Limpiar</button>
+    </div>
+    <canvas id="miGrafica" width="10" height="10"></canvas>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+<script>
+document.getElementById('btn_res').addEventListener('click', mostrarResultado)
+document.getElementById('btn_lim').addEventListener('click', limpiarResultado)
+var miCanvas = document.getElementById("miGrafica").getContext('2d');
+
+
+var alumnos = {
+    promocionados : undefined,
+    regularizados : undefined,
+    desaprobados : undefined,
+    libres : undefined
+}
+
+var porcentajes = []
+
+function obtenerValores(){
+    alumnos.promocionados = parseInt(document.getElementById('a_prom').value)
+    alumnos.regularizados = parseInt(document.getElementById('a_reg').value)
+    alumnos.desaprobados = parseInt(document.getElementById('a_des').value)
+    alumnos.libres = parseInt(document.getElementById('a_lib').value)
+}
+
+function determinarPorcentaje(){
+    var total_alumnos = alumnos.promocionados + alumnos.regularizados + alumnos.desaprobados + alumnos.libres
+    
+    porcentajes.push((alumnos.promocionados * 100) / total_alumnos)
+    porcentajes.push((alumnos.regularizados * 100) / total_alumnos)
+    porcentajes.push((alumnos.desaprobados * 100) / total_alumnos)
+    porcentajes.push((alumnos.libres * 100) / total_alumnos)
+}
+
+// function mostrarResultado(){
+//     obtenerValores()
+//     determinarPorcentaje()
+
+//     for (var i = 5; i <= 8; i++){
+//         var resultado = document.createElement('tr')
+//         resultado.innerHTML = "<td>" + i + "</td><td>Resultado: </td><td> </td><td>" + porcentajes[i-5] + "%</td>"
+//         document.getElementById('t_body').appendChild(resultado)
+//     }   
+// }
+
+function mostrarResultado(){
+    obtenerValores()
+    determinarPorcentaje()
+
+    elemento_tr = document.getElementById('t_body').children
+
+    for (i = 0 ; i < 4 ; i ++){
+        elemento_tr[i].children[3].innerText = porcentajes[i] + "%"
+    }
+    new Chart(miCanvas, {
+    type: "bar",
+    data: {
+    labels: ["Promocionados", "Regularizados", "Desaprobados", "Libres"],
+    datasets: [{
+        label: "Porcentajes Alumnos", 
+        backgroundColor: "rgb(230,35,35)",
+        data:[porcentajes[0],porcentajes[1],porcentajes[2],porcentajes[3]]
+    }]
+  }
+});
+
+}
+
+function limpiarResultado(){
+    elemento_tr = document.getElementById('t_body').children
+
+    for (i = 0 ; i < 4 ; i ++){
+        elemento_tr[i].children[3].innerText = ""
+    }
+}
+
+
+</script>
+</html>

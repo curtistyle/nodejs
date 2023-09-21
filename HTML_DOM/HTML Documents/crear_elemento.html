@@ -31,7 +31,8 @@
 </body>
 <script>
     function crearElemento() {
-        elemento = document.createElement('p')
+        elemento = document.createElement('tr')
+        elemento.innerHTML = '<td></td><td></td><td></td>'
         document.getElementById('t_body').appendChild(elemento)
     } 
     
