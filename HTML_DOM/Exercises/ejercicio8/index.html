@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+    <h1>Ejercicio 8</h1>
+    <p><b>Ejercicio 9: </b>Solicitar al usuario que ingrese el precio de un producto al inicio del año, y el precio del mismo producto transcurrido un determinado tiempo. El usuario debe mostrar cuál fue el porcentaje de aumento que tuvo ese producto en el año.</p>
+    <table>
+        <thead>
+            <caption>Monto del producto: </caption>
+            <tr>
+                <th>#</th>
+                <th>Descripcion</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Al inicio del ano: </td>
+                <td><input id="monto_inicial" type="text"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ahora: </td>
+                <td><input id="monto_final" type="text"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Resultado: </td>
+                <td></td>
+                <td id="resultado"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button id="btn_res">Calcular</button>
+        <button id="btn_lim">Limpiar</button>
+    </div>
+    <div id="contenedorGrafica">
+        
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

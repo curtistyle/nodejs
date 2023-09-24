@@ -21,3 +21,9 @@ const multiplication = (a, b) => {
 }
 
 
+lista = []
+
+lista.push(1)
+lista.push('a')
+
+console.log(lista)
