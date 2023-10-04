@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1><a href="http://www.google.com/" onclick="click()">Google</a></h1>
     <table id="table">
         <thead>
             <tr>
@@ -26,7 +27,8 @@
     </table>
 </body>
 <script>
-    var elemento = document.getElementById('r_body').nodeName
-    console.log(elemento)
+    function click(){
+        console.log(window.history.go(-1))
+    } 
 </script>
 </html>
