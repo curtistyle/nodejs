@@ -40,3 +40,68 @@ Especifica si los elementos flex son forzados a una sola línea o pueden ser env
 
 > Esto puede ser confuso, pero `align-content` determina el espacio entre las líneas, mientras que `align-items` determina como los elementos en su conjunto están alineados dentro del contenedor. Cuando hay solo una línea, `align-content` no tiene efecto.
 
+## JSON Files
+
+En Node.js, puedes manipular archivos JSON utilizando el módulo `fs` (sistema de archivos) y las funciones proporcionadas por este módulo. A continuación, te mostraré cómo crear, abrir, actualizar y borrar archivos JSON en Node.js:
+
+### 1. Crear un archivo JSON:
+
+```javascript
+const fs = require('fs');
+
+const datos = {
+  nombre: 'Juan',
+  edad: 30
+};
+
+fs.writeFile('datos.json', JSON.stringify(datos), (err) => {
+  if (err) throw err;
+  console.log('Archivo creado satisfactoriamente');
+});
+```
+
+Este código crea un archivo llamado `datos.json` y escribe en él el objeto `datos` en formato JSON.
+
+### 2. Leer un archivo JSON:
+
+```javascript
+fs.readFile('datos.json', (err, data) => {
+  if (err) throw err;
+  const datos = JSON.parse(data);
+  console.log(datos);
+});
+```
+
+Este código lee el archivo `datos.json` y lo convierte de JSON a un objeto de JavaScript.
+
+### 3. Actualizar un archivo JSON:
+
+```javascript
+fs.readFile('datos.json', (err, data) => {
+  if (err) throw err;
+  let datos = JSON.parse(data);
+  datos.edad = 31;
+
+  fs.writeFile('datos.json', JSON.stringify(datos), (err) => {
+    if (err) throw err;
+    console.log('Archivo actualizado satisfactoriamente');
+  });
+});
+```
+
+Este código lee el archivo JSON, actualiza el valor de `edad`, y luego escribe el objeto actualizado de vuelta al archivo.
+
+### 4. Borrar un archivo JSON:
+
+```javascript
+fs.unlink('datos.json', (err) => {
+  if (err) throw err;
+  console.log('Archivo borrado satisfactoriamente');
+});
+```
+
+Este código borra el archivo `datos.json`.
+
+Recuerda que al manipular archivos, es importante manejar los posibles errores que puedan ocurrir durante las operaciones de lectura y escritura.
+
+Ten en cuenta que estos ejemplos son bastante simplificados y no incluyen validación de errores exhaustiva. En una aplicación real, deberías agregar manejo de errores más robusto y considerar posibles escenarios donde las operaciones de archivo puedan fallar.
