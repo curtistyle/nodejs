@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Glosario</title>
+</head>
+<body class="first-color">
+    <h1 class="third-color">Formulario</h1>
+    <div>
+        <form action="">
+            <table>
+                <thead>
+                    <tr class="third-color">
+                        <th>Descripcion</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Operacion</th>
+                    </tr>
+                </thead>
+                <tbody id="table_agregar">
+                    <tr class="fourth-color">
+                        <td>Palabra:</td>
+                        <td><input id="in_palabra" type="text"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="fourth-color">
+                        <td>Traduccion:</td>
+                        <td><input id="in_traduccion" type="text"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="fourth-color">
+                        <td>Tipo:</td>
+                        <td><input id="in_tipo" type="text"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="fourth-color">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><button type="button" id="btn_agregar">Agregar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <table>
+            <thead>
+                <th>Palabra</th>
+                <th>Tipo</th>
+                <th>Traduccion</th>
+            </thead>
+        </table>
+    </div>
+</body>
+<script type="module" src="main.js"></script>
+</html>
