@@ -1,5 +1,30 @@
 var index;  // variable to set the selected row indexs
 var table_len;
+
+// function getboton(){
+//     var table = document.getElementById("table");
+//     table_len = table.rows.length
+//     var j = 1
+//     for(var i = 1; i < table.rows.length; i++){
+//         table.rows[i].cells[4].children[0].onclick = function(){
+            
+//             console.log( i )
+//         }
+//     }
+// }
+
+// getboton()
+
+function pop(element){
+    var table = document.getElementById("table")
+    console.log()
+    index=element.parentNode.parentNode.cells[0].innerText
+    element.parentNode.parentNode.remove()
+    for(var i = index; i < table.rows.length; i++){
+        table.rows[i].cells[0].innerText = i
+    }
+}
+
 function getSelectedRow()
 {
     var table = document.getElementById("table");
