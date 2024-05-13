@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin-top: 1rem;
+            background-color: blueviolet;
+          }
+          
+          input::file-selector-button {
+            height: 100px;
+            width: 300px;
+            font-weight: bold;
+            color: dodgerblue;
+            padding: 0.5em;
+            border: thin solid grey;
+            border-radius: 3px;
+          }
+    </style>
+</head>
+<body>
+
+    
+
+    <input id="file" type="file" />
+
+    <p>Select a file with the following format.</p>
+    <pre>
+    {
+    "name": "testName",
+    "family": "testFamily"
+    }    
+</pre>
+</body>
+<script src="main.js"></script>
+</html>

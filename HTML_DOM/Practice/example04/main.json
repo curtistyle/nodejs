@@ -1,0 +1,32 @@
+{
+    "dictionary" : [
+        {
+            "word" : {
+                "inEnglish" : {},
+                "inSanish" : [
+                    {
+                        "name" : null,
+                        "type" : null,
+                        "state" : null,
+                        "count" : null,
+                        "order" : null
+                    }
+                ]
+            }
+        },
+        {
+            "word" : {
+                "inEnglish" : {},
+                "inSanish" : [
+                    {
+                        "name" : null,
+                        "type" : null,
+                        "state" : null,
+                        "count" : null,
+                        "order" : null
+                    }
+                ]
+            }
+        }
+    ]
+}

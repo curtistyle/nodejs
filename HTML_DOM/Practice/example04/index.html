@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: antiquewhite;
+    }
+    h1{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    p{
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    input{
+        width: 200px;
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        }
+        
+        .div1 { 
+            grid-area: 1 / 1 / 6 / 2; 
+
+        }
+        .div2 { grid-area: 1 / 2 / 2 / 6; }
+        .div3 { 
+            grid-area: 2 / 2 / 6 / 6; 
+            
+        }
+</style>
+<body>
+    <div class="parent">
+        <div class="div1"> hola (div1)</div>
+        <div class="div2">
+            <button>index</button>
+            <button>about</button>
+            <button>links</button>
+        </div>
+        <div class="div3">
+            <h1>Welcome to my page</h1>
+
+            <hr width="80%" align="left">
+
+            <div style="margin: 30px;">
+                <h4>input .json file</h4>
+                <input type="file" id="" title="input file">
+            </div>
+            
+            <hr width="80%" align="left">
+            
+            <div style="margin: 30px;">
+                <h4>search word</h4>
+                <div>
+                    <label for="word">word: </label>
+                    <input id="word" type="text">
+                    <button>search</button>
+                </div>
+            </div>
+
+            <hr width="80%" align="left">
+        </div>
+    </div>
+</body>
+</html>
