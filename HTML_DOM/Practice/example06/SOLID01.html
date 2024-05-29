@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="div1"> 
+            <h3>Capitulo 1</h3>
+            <h1>Los Principios de Diseño <span style="color: rgb(255, 87, 45);">SOLID</span></h1>
+            <hr>
+            <p><b>SOLID</b> es un acronimo que soporta los siguientes principios de diseño (y sus abreviatuas)</p>
+
+            <ul>
+                <li>Principio de Resposabilidad Unica. <span style="color: darkgray;"><i>Single Responsibility Principle (SRP)</i></span></li>
+                <li>Principio de Abierto-Cerrado. <span style="color: darkgray;"><i>Open-Closed Principle (CSP)</i></span></li>
+                <li>Principio de Sustitución de Liskov. <span style="color: darkgray;"><i>Liskov Substitution Principle (LSP)</i></span></li>
+                <li>Principio de Segregacion de Interfaz. <span style="color: darkgray;"><i>Interface Segregation Principle (ISP)</i></span></li>
+                <li>Principio de Inversion de Dependencia. <span style="color: darkgray;"><i>Dependency Inversion Principle (DIP)</i></span></li>
+            </ul>
+
+            <p>Estos principios son introducidos por Robert C. Martin a principio de los 2000s - En efecto, aquellas son una seleccion de cinco principios de docenas que son expresados en los libros y blogs de Robert. Estos cincos particulares temas introducen la discusión en general del diseño de patrones y software, por lo tanto, antes de lanzarnos en Patrones de Diseño, vamos a realizar un breve resumen acerca de lo que son los <i>Principios SOLID</i></p>
+
+            <h2>Principio de Unica Responsabilidad</h2>
+            <p>Supongamos que decides tener un diario de vuestras ideas/opiniones mas intimas. El diario es usado para guardar numeros de entrada. Podrias modelarlo de la siguiente forma: </p>
+   
+            <code>
+            <pre>
+
+    public class Journal
+    {
+        private readonly List&lt;string&gt; entries = new();
+        
+        // Solo un contador para el total de numeros de entradas
+        private static int count = 0;
+    }
+
+            </pre>
+            </code>
+
+            <p>Ahora, podrias agregar funcionalidad para añadir una entrada a la revista, procedido del numero de entrada de la revista. Tambien podrias tener funcionalidad para remover entradas (Implementado de una forma muy ordinaria de la siguiente forma). Esto es facil: </p>
+
+            <code>
+            <pre>
+    
+    public void AddEntry(string text)
+    {
+        entries.Add($"{++count}: {text}");
+    }
+
+    public void RemoveEntry(int index)
+    {
+        entries.RemoveAt(index);
+    }
+            </pre>
+            </code>            
+            <p>y ahora usamos el diario de la siguiente forma: </p>
+
+            <code>
+            <pre>
+        
+    var j = new Journal();
+    j.AddEntry("I cried today.");
+    j.AddEntry("I ate a bug.")
+
+            </pre>
+            </code>    
+
+            
+            <p>Tiene sentido que este metodo forme parte de la clase Journal porque añadir una entrada al diario es algo que realmente el diario tiene que hacer. Es responsabilidad del diario mantener las entradas, por lo que cualquier cosa relacionada con eso es juego limpio.</p>
+            <p>Ahora, suponga que decide hacer que el diario percista guardando en un archivo. Agrege este codigo a la clase Journal: </p>
+
+            <code>
+            <pre>
+    
+    public void Save(string filename, bool overwrite = false)
+    {
+        File.WriteAllText(filename, ToString());
+    }
+
+            </pre>
+            </code>        
+    
+            <p>Este enfoque es problematico. La responsabilidad de los Diarios <i>(de la clase diario)</i> es guardar las entradas, no escribirlas en el disco. Si agregas la funcionalidad de persistencia a la clase Journal y a clases similares, cualquier cambio en el enfoque hacia su persistencia (digamos, usted decide si escribir en la nube en vez del disco) requeriría muchos pequeños cambios en cada una de las clases afectadas.</p>
+        </div>
+    <div class="div2"> 
+        <a href="index.html">Home</a>
+
+    </div>
+
+    <!-- ! TOPICS -->
+    <div class="div3"> 
+        <h3>Topics</h3>
+        <ul>
+            <li><a href="SOLID01.html">SOLID</a></li>
+        </ul>
+    </div>
+
+
+    <div class="div4"> </div>    
+        <ul>
+            <li><a href="glosario.html">Glosario</a></li>
+        </ul>
+    </div>
+
+
+
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
