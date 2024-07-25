@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# and .NET</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="div1"> 
+            
+            <h1>C# & .NET Core</h1>
+            <hr>
+
+            <h2>1. Inyeccion de dependencias</h2>
+            <p>Instalar Entity Framework</p>
+
+            <ul>
+                <li>Microsoft Entity Framework Core SqlServer</li>
+                <li>Microsoft Entity Framework Core Tools</li>
+            </ul>
+            
+            <h2>2. Mapear la Base de Datos</h2>
+            <p>Mapear la base de datos en la carpeta Models</p>
+            <ul>
+                <li>Abrir Consola de Consola de Comandos (Herramientas>Administrador de Paquetes NuGet>Consola del Administrador de Paquetes)</li>
+                <li>Escribimos el siguiente comandos: </li>
+            </ul>
+
+            <p>Comando:</p>
+            <p>PM> <samp style="color: burlywood;">Scaffold-DbContext "Server="Server=(localdb)\MSSQLLocalDB; Database=BandList; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models"</samp></p>
+
+            <h2>3. Reubicar la cadena de conexion</h2>
+            <p>Reubicar la cadena de conexion de Models.(tuContext)</p>
+            <ul>
+                <li>1. Ir a <b>allsetting.json</b> </li>
+                <li>2. Agregar el nuevo campo "ConnectionStrings" y agregar la conexion: </li>
+            </ul>
+
+            <code>
+            <pre>
+
+    {
+        "Logging": {
+            "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+            }
+        },
+        "AllowedHosts": "*",
+        "ConnectionStrings": {
+            "BandListContext": "Server=(localdb)\\MSSQLLocalDB; Database=BandList; Trusted_Connection=True;"
+        }
+    }
+                  
+            </pre>
+            </code>
+
+            <ul>
+                <li>Agregamos el <b>DbContext</b> en el <b>Program.cs</b>.</li>
+            </ul>
+
+            <code>
+            <pre>
+    
+        builder.Services.AddDbContext&lt;<span style="color: chocolate;">BandListContext</span>&gt;(options =>
+        {
+            options.UseSqlServer(builder.Configuration.GetConnectionString("<span style="color: chocolate;">BandListContext</span>"));
+        });
+                      
+            </pre>
+            </code>           
+
+            <h3>Agregamos un controlador</h3>
+            <ul>
+                <li>Abrir el <b>Explorador de Soluciones</b></li>
+                <li>Click Derecho sobre la carpeta <b>Controllers</b></li>
+                <li>Agregar>Controlador...</li>
+                <li>Seleccionamos la opcion <b>Controlador de MVC: en blanco</b> y 'Agregar'</li>
+                <li>Le cambiamos el nombre: <i>nombre_del_controlador</i>+<b>Controller.cs</b>, por ejemplo <b>ArtistController.cs</b></li>
+            </ul>
+
+
+            <h2> - <samp class="orange">@Html.Action()</samp></h2>
+            <p><code style="font-style: italic;">@Html.Action(String <b>actionName</b>, String <b>controlName</b>)</code>, Genera una dirección URL completa para un método de acción mediante el metodo de acción y el nombre de la ruta especificado.</p>
+            <div class="param">
+                <h4>Parametros: </h4>
+                <p> - <code><b>actionName</b></code> : String</p>
+                <p>El nombre del método de acción.</p>
+                <p> - <code><b>controlName</b></code> : String</p>
+                <p>El nombre del controlador.</p>
+                <h4>Retorna: </h4>
+                <p>String</p>
+                <p>Dirección URL completa para un método de acción.</p>
+            </div>
+
+            <h2> - <samp class="orange">jQuery.getJSON()</samp></h2>
+            <p><code style="font-style: italic;">jQuery.getJSON( <b>url</b> <b>[, data ]</b> <b>[, success </b>] )</code>, Cargar datos codificados en JSON desde el servidor mediante una petición HTTP GET.</p>
+            <div class="param">
+                <h4>Parametros: </h4>
+                <p> - <code><b>url</b></code> : String</p>
+                <p>Cadena que contiene la URL a la que se envía la solicitud.</p>
+                <p> - <code><b>data</b></code> : String</p>
+                <p>Un objeto plano o cadena que se envía al servidor con la solicitud.</p>
+                <p> - <code><b>success</b></code> : function</p>
+                <p>Una función de devolución de llamada que se ejecuta si la solicitud tiene éxito.</p>
+            </div>
+            
+            <h2> - <samp class="orange">.change()</samp></h2>
+            <p><code style="font-style: italic;">.change( <b>handler</b> )</code>, Vincula un manejador de eventos al evento "cambio", o dispara ese evento en un elemento..</p>
+            <div class="param">
+                <h4>Parametros: </h4>
+                <p> - <code><b>handler</b></code> : function</p>
+                <p>Una función que se ejecutará cada vez que se active el evento.</p>
+            </div>
+            <p><code style="font-style: italic;">.change( <b>eventData</b>, <b>handler</b> )</code></p>
+            <div class="param">
+                <h4>Parametros: </h4>
+                <p> - <code><b>eventData</b></code> : Anything</p>
+                <p>Un objeto que contiene los datos que se pasarán al manejador del evento.</p>
+                <p> - <code><b>handler</b></code> : function</p>
+                <p>Una función que se ejecutará cada vez que se active el evento.</p>
+            </div>
+
+
+        </div>
+        <div class="div2"> 
+            <a href="index.html">Home</a>
+
+        </div>
+        <div class="div3"> 
+            <h3>Topics</h3>
+            <ul>
+                <li><a href="SOLID01.html">SOLID</a></li>
+            </ul>
+        </div>
+
+        <div class="div4"> 
+            <ul>
+                <li><a href="glosario.html">Glosario</a></li>
+            </ul>
+
+        </div>    
+    </div>
+</body>
+</html>
